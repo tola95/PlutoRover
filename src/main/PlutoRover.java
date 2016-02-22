@@ -38,6 +38,10 @@ public class PlutoRover {
 		return res;
 	}
 
+	private void setOrd(Orientation ord) {
+		this.ord = ord;
+	}
+	
 	public Orientation getOrd() {
 		return ord;
 	}
@@ -53,7 +57,23 @@ public class PlutoRover {
 	}
 	
 	public void moveBackward() {
-		
+		switch (ord) {
+			case NORTH : setY(getY() - 1); break;
+			case SOUTH : setY(getY() + 1); break;
+			case EAST : setX(getX() - 1); break;
+			case WEST : setX(getX() + 1); break;
+			default : break;
+		}
+	}
+	
+	public void leftTurn() {
+		switch (ord) {
+			case NORTH : setOrd(WEST); break;
+			case SOUTH : setOrd(EAST); break;
+			case EAST : setOrd(NORTH); break;
+			case WEST : setOrd(SOUTH); break;
+			default : break;
+		}
 	}
 
 }
