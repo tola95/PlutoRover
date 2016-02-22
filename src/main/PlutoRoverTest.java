@@ -16,23 +16,54 @@ public class PlutoRoverTest {
 	}
 	
 	@Test
-	public void forwardMovementNorth() {
+	public void forwardMovement() {
 		PlutoRover rover = new PlutoRover();
 		int[] new_loc = {0, 1};
 		rover.moveForward();
 		Assert.assertArrayEquals(rover.getLocation(), new_loc);
+		
+		rover.rightTurn();
+		rover.moveForward();
+		new_loc[0] = 1;
+		Assert.assertArrayEquals(rover.getLocation(), new_loc);
+		
+		rover.rightTurn();
+		rover.moveForward();
+		new_loc[1] = 0;
+		Assert.assertArrayEquals(rover.getLocation(), new_loc);
+		
+		rover.rightTurn();
+		rover.moveForward();
+		new_loc[0] = 0;
+		Assert.assertArrayEquals(rover.getLocation(), new_loc);
+		
 	}
 	
 	@Test
-	public void backwardMovementNorth() {
+	public void backwardMovement() {
 		PlutoRover rover = new PlutoRover();
 		int[] new_loc = {0, -1};
 		rover.moveBackward();
 		Assert.assertArrayEquals(rover.getLocation(), new_loc);
+		
+		rover.rightTurn();
+		rover.moveBackward();
+		new_loc[0] = -1;
+		Assert.assertArrayEquals(rover.getLocation(), new_loc);
+		
+		rover.rightTurn();
+		rover.moveBackward();
+		new_loc[1] = 0;
+		Assert.assertArrayEquals(rover.getLocation(), new_loc);
+		
+		rover.rightTurn();
+		rover.moveBackward();
+		new_loc[0] = 0;
+		Assert.assertArrayEquals(rover.getLocation(), new_loc);
 	}
 	
 	@Test
-	public void leftTurn() {
+	public void leftTurnMovement() {
 		PlutoRover rover = new PlutoRover();
 		rover.leftTurn();
 		Assert.assertEquals(rover.getOrd(), WEST);
@@ -46,8 +77,16 @@ public class PlutoRoverTest {
 	}
 	
 	@Test
-	public void rightTurn() {
-		
+	public void rightTurnMovement() {
+		PlutoRover rover = new PlutoRover();
+		rover.rightTurn();
+		Assert.assertEquals(rover.getOrd(), EAST);
+		rover.rightTurn();
+		Assert.assertEquals(rover.getOrd(), SOUTH);
+		rover.rightTurn();
+		Assert.assertEquals(rover.getOrd(), WEST);
+		rover.rightTurn();
+		Assert.assertEquals(rover.getOrd(), NORTH);
 	}
 	
 

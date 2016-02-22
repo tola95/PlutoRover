@@ -76,4 +76,13 @@ public class PlutoRover {
 		}
 	}
 
+	public void rightTurn() {
+		switch (ord) {
+			case NORTH : setOrd(EAST); break;
+			case SOUTH : setOrd(WEST); break;
+			case EAST : setOrd(SOUTH); break;
+			case WEST : setOrd(NORTH); break;
+			default : break;
+		}
+	}
 }
