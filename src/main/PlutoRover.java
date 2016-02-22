@@ -33,6 +33,7 @@ public class PlutoRover {
 		this.y = y;
 	}
 	
+	//Returns x,y location of rover
 	public int[] getLocation() {
 		int[] res = new int[2];
 		res[0] = x;
@@ -44,10 +45,12 @@ public class PlutoRover {
 		this.ord = ord;
 	}
 	
+	//Returns current direction rover points to
 	public Orientation getOrd() {
 		return ord;
 	}
 	
+	//Updates rovers location depending on direction being pointed to
 	public void moveForward() {
 		switch (ord) {
 			case NORTH : setY((getY() + 1 + PLUTO_LENGTH) % PLUTO_LENGTH); break;
@@ -58,6 +61,7 @@ public class PlutoRover {
 		}
 	}
 	
+	//Updates rovers location depending on direction being pointed to
 	public void moveBackward() {
 		switch (ord) {
 			case NORTH : setY((getY() - 1 + PLUTO_LENGTH) % PLUTO_LENGTH ); break;
@@ -68,6 +72,7 @@ public class PlutoRover {
 		}
 	}
 	
+	//Changes rovers orientation depending on current orientation
 	public void leftTurn() {
 		switch (ord) {
 			case NORTH : setOrd(WEST); break;
@@ -78,6 +83,7 @@ public class PlutoRover {
 		}
 	}
 
+	//Changes rovers orientation depending on current orientation
 	public void rightTurn() {
 		switch (ord) {
 			case NORTH : setOrd(EAST); break;
