@@ -1,5 +1,7 @@
 package main;
 
+import static main.Orientation.*;
+
 public class PlutoRover {
 	
 	private int x;
@@ -10,7 +12,23 @@ public class PlutoRover {
 		//Initialise location of Rover
 		this.x = 0;
 		this.y = 0;
-		this.ord = Orientation.NORTH;
+		this.ord = NORTH;
+	}
+	
+	private int getX() {
+		return this.x;
+	}
+	
+	private void setX(int x) {
+		this.x = x;
+	}
+	
+	private int getY() {
+		return this.y;
+	}
+	
+	private void setY(int y) {
+		this.y = y;
 	}
 	
 	public int[] getLocation() {
@@ -22,6 +40,20 @@ public class PlutoRover {
 
 	public Orientation getOrd() {
 		return ord;
+	}
+	
+	public void moveForward() {
+		switch (ord) {
+			case NORTH : setY(getY() + 1); break;
+			case SOUTH : setY(getY() - 1); break;
+			case EAST : setX(getX() + 1); break;
+			case WEST : setX(getX() - 1); break;
+			default : break;
+		}
+	}
+	
+	public void moveBackward() {
+		
 	}
 
 }

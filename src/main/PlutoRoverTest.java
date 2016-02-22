@@ -14,5 +14,13 @@ public class PlutoRoverTest {
 		Assert.assertEquals(rover.getOrd(), Orientation.NORTH);
 	}
 	
+	@Test
+	public void forwardMovementNorth() {
+		PlutoRover rover = new PlutoRover();
+		int[] new_loc = {0, 1};
+		rover.moveForward();
+		Assert.assertArrayEquals(rover.getLocation(), new_loc);
+	}
+	
 
 }
