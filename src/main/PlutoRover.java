@@ -7,6 +7,8 @@ public class PlutoRover {
 	private int x;
 	private int y;
 	private Orientation ord;
+	private static final int PLUTO_LENGTH = 1000; //Random chosen length and width for pluto
+	private static final int PLUTO_WIDTH = 1000;
 
 	public PlutoRover() {
 		//Initialise location of Rover
@@ -48,20 +50,20 @@ public class PlutoRover {
 	
 	public void moveForward() {
 		switch (ord) {
-			case NORTH : setY(getY() + 1); break;
-			case SOUTH : setY(getY() - 1); break;
-			case EAST : setX(getX() + 1); break;
-			case WEST : setX(getX() - 1); break;
+			case NORTH : setY((getY() + 1 + PLUTO_LENGTH) % PLUTO_LENGTH); break;
+			case SOUTH : setY((getY() - 1 + PLUTO_LENGTH) % PLUTO_LENGTH); break;
+			case EAST : setX((getX() + 1 + PLUTO_WIDTH) % PLUTO_WIDTH); break;
+			case WEST : setX((getX() - 1 + PLUTO_WIDTH) % PLUTO_WIDTH); break;
 			default : break;
 		}
 	}
 	
 	public void moveBackward() {
 		switch (ord) {
-			case NORTH : setY(getY() - 1); break;
-			case SOUTH : setY(getY() + 1); break;
-			case EAST : setX(getX() - 1); break;
-			case WEST : setX(getX() + 1); break;
+			case NORTH : setY((getY() - 1 + PLUTO_LENGTH) % PLUTO_LENGTH ); break;
+			case SOUTH : setY((getY() + 1 + PLUTO_LENGTH) % PLUTO_LENGTH); break;
+			case EAST : setX((getX() - 1 + PLUTO_WIDTH) % PLUTO_WIDTH); break;
+			case WEST : setX((getX() + 1 + PLUTO_WIDTH) % PLUTO_WIDTH); break;
 			default : break;
 		}
 	}
